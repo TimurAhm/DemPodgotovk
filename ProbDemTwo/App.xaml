@@ -1,0 +1,9 @@
+﻿<Application x:Class="ProbDemTwo.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:ProbDemTwo"
+             StartupUri="/AuthWin.xaml">
+    <Application.Resources>
+        <BitmapImage UriSource="/ResoursesSSS/picture.png" x:Key="NullPicture"/>
+    </Application.Resources>
+</Application>

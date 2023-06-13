@@ -1,0 +1,205 @@
+﻿<Page x:Class="ProbDemTwo.PageSS.SotrudnikiPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ProbDemTwo.PageSS"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="SotrudnikiPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Name="itemsCount" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="2"/>
+        <StackPanel Orientation="Horizontal">
+            <Button Width="100" Height="20" Content="Добавить" Click="btAddSotrudnikClick"/>
+            <TextBox Name="tbSearch" Width="200" Height="30" HorizontalAlignment="Left" Margin="20,0,0,0" TextChanged="tbsearchTextChanged"/>
+            <StackPanel Orientation="Vertical" Margin="10,0,10,0">
+                <Label Content="Сортировка по ФИО - "/>
+                <ComboBox Width="100" Height="30">
+                    <ComboBoxItem>
+                        <Button Click="btCortResetClick" Width="200" Height="20" Content="Сбросить сортировку"/>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <Button Click="btCortUpClick" Width="200" Height="20" Content="По возрастанию"/>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <Button Click="btCortDowmClick" Width="200" Height="20" Content="По убыванию"/>
+                    </ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Vertical">
+                <Label Content="Сортировка по названию направления - "/>
+                <ComboBox Width="100" Height="30">
+                    <ComboBoxItem>
+                        <Button Click="btCortResetClickT" Width="200" Height="20" Content="Сбросить сортировку"/>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <Button Click="btCortUpClickT" Width="200" Height="20" Content="По возрастанию"/>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <Button Click="btCortDowmClickT" Width="200" Height="20" Content="По убыванию"/>
+                    </ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Margin="10,0,10,0">
+                <Label Content="Фильтрация по статусу - "/>
+                <ComboBox Width="100" Height="30">
+                    <ComboBoxItem>
+                        <Button Click="btCortResetClickS" Width="200" Height="20" Content="Сбросить фильтрацию"/>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <Button Click="btCortUpClickS" Width="200" Height="20" Content="Присутствует"/>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <Button Click="btCortDowmClickS" Width="200" Height="20" Content="В отпуске"/>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <Button Click="btVkomanditovkeClickS" Width="200" Height="20" Content="В командровке"/>
+                    </ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Margin="10,0,10,0">
+                <Label Content="Фильтрация по типу посещения - "/>
+                <ComboBox Width="100" Height="30">
+                    <ComboBoxItem>
+                        <Button Click="btResetTipPos" Width="200" Height="20" Content="Сбросить фильтрацию"/>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <Button Click="btPolisOMS" Width="200" Height="20" Content="По полису"/>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <Button Click="btSrochnoe" Width="200" Height="20" Content="Срочное"/>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <Button Click="btPoNapravl" Width="200" Height="20" Content="По направлению"/>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <Button Click="btPlatnoe" Width="200" Height="20" Content="Платное"/>
+                    </ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Margin="10,0,10,0">
+                <Label Content="Фильтрация по направлению - "/>
+                <ComboBox Width="100" Height="30">
+                    <ComboBoxItem>
+                        <Button Click="btResetNapravl" Width="200" Height="20" Content="Сбросить фильтрацию"/>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <Button Click="DEndokr" Width="200" Height="20" Content="Д. эндекринолог"/>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <Button Click="btDietolog" Width="200" Height="20" Content="Диетолог"/>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <Button Click="btInfectionist" Width="200" Height="20" Content="Инфекционист"/>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <Button Click="btKardio" Width="200" Height="20" Content="Кардиолог"/>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <Button Click="btKosmetolog" Width="200" Height="20" Content="Косметолог"/>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <Button Click="btNevrolog" Width="200" Height="20" Content="Невролог"/>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <Button Click="btosteopat" Width="200" Height="20" Content="Остеопат"/>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <Button Click="btPediatr" Width="200" Height="20" Content="Педиатр"/>
+                    </ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+        </StackPanel>
+        <ListView Name="lvSotrudniki" Grid.Row="1">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderThickness="1" BorderBrush="Black">
+                        <Grid Width="400">
+                            <Grid.Style>
+                                <Style TargetType="Grid">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding VrachiStatus}" Value="В отпуске">
+                                            <Setter Property="Background" Value="LightGray"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding VrachiStatus}" Value="В командировке">
+                                            <Setter Property="Background" Value="LightGray"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Grid.Style>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <UniformGrid Grid.Row="2" >
+                                <Button Width="100" Height="30"/>
+                                <Button Width="100" Height="30"/>
+                            </UniformGrid>
+                            <Border BorderThickness="1" BorderBrush="Black" Grid.Row="1" Margin="10"/>
+                                <StackPanel Orientation="Vertical" Grid.Row="1" Margin="40,20,0,20">
+                                    <TextBlock>
+                                    <Run Text="Направление: "/>
+                                    <Run Text="{Binding VrachiDoljnost}"/>
+                                    </TextBlock>
+                                    <TextBlock>
+                                    <Run Text="Тип посещения: "/>
+                                    <Run Text="{Binding VrachiTipPos}"/>
+                                    </TextBlock>
+                                    <TextBlock>
+                                    <Run Text="Статус: "/>
+                                    <Run Text="{Binding VrachiStatus}">
+                                        <Run.Style>
+                                            <Style TargetType="Run">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding VrachiStatus}" Value="Присутствует">
+                                                        <Setter Property="Foreground" Value="LawnGreen"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding VrachiStatus}" Value="В отпуске">
+                                                        <Setter Property="Foreground" Value="Red"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding VrachiStatus}" Value="В командировке">
+                                                        <Setter Property="Foreground" Value="Red"/>
+                                                    </DataTrigger>
+                                                    </Style.Triggers>
+                                            </Style>
+                                        </Run.Style>
+                                    </Run>
+                                    </TextBlock>
+                                </StackPanel>
+                                <Grid Grid.Row="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Border BorderThickness="1" BorderBrush="Black" Grid.Column="0" Margin="10"/>
+                                <Border BorderThickness="1" BorderBrush="Black" Grid.Column="1" Margin="10"/>
+                                <Image Margin="20" Grid.Column="0" Source="{Binding VrachiPhoto, TargetNullValue={StaticResource NullPicture}}" Width="200" Height="200"/>
+                                <StackPanel Grid.Column="1" Orientation="Vertical" Margin="20,20,0,0">
+                                    <TextBlock>
+                                        <Run Text="{Binding VrachiFam}"/>
+                                        <Run Text="{Binding NameFFFFFF, Mode=OneWay}"/>
+                                    </TextBlock>
+                                    <TextBlock>
+                                        <Run Text="Смена :"/>
+                                        <Run Text="{Binding VrachiSmena, TargetNullValue='Не указано'}"/>
+                                    </TextBlock>
+                                    <TextBlock>
+                                        <Run Text="Режим работы:"/>
+                                        <Run Text="{Binding VrachiVremya, TargetNullValue='Не указано'}"/>
+                                    </TextBlock>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>
